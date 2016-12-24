@@ -1,0 +1,16 @@
+name: Elytraプレゼント
+main: takesi\Main
+author: takesi
+version: 1.1
+api: [1.13.0]
+load: STARTUP
+description: Elytraプレゼント
+commands:
+ elgv:
+  desciption: Elytraプレゼント
+  usage: /elgv
+  permission: elgv.cmd
+permissions:
+ elgv.cmd:
+  default: true
+  description: elgv command accept
