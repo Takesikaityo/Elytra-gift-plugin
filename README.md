@@ -15,6 +15,7 @@ Elytraをプレゼントするプラグインです。
 1.1.0
 
 Erytra着用時にメッセージを送信できるように
+
 config.ymlの追加
 
 This plugin is gift Elytra to us.
