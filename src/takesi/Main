@@ -19,16 +19,24 @@ use pocketmine\item\Item;
 
 class Main extends PluginBase implements Listener
 {
+    public function onEnable(){
+        if(!file_exists($this->getDataFolder())){
+           mkdir($this->getDataFolder(), 0744, true);
+}
+        $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML, array(
+         'have' => 'Elytraを着用しました。',
+          'alreadyhave' => '既にエリトラを持っています。',
+          'dontuseconsole' => 'コンソールからは使用できません。'));
+}
+
 	public function onCommand(CommandSender $sender, Command $command, $label, array $args){
         switch (strtolower($command->getName())) {
             case 'elgv':
-                $item = Item::get(444, 0, 1);
-                if ($sender->getInventory()->contains($item)) {
-                } else {
-                    $sender->getInventory()->setArmorItem(1, Item::get(444, 0, 1));
-                }
+                $sender->getInventory()->setArmorItem(1, Item::get(444, 0, 1));
+                $send = $this->config->get("have");
+                $sender->sendMessage($send);
                 return true;
                 break;
-        }
-    }
+}
+}
 }
